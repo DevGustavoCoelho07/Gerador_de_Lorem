@@ -13,20 +13,23 @@
 
 <body>
     <h1>Um Simples Gerador de Lorem Ipsum</h1>
-    <div class="content">
-        <p id="pp"></p>
+    <div class="control">
+        <label for="loremInput">Parágrafos</label><br><br>
+        <input type="number" min="1" max="100" value="1" id="loremInput">
+        <button id="btnLorem">Gerar Lorem</button>
     </div>
-    <label for="loremInput">Parágrafos</label><br>
-    <input type="number" min="1" max="100" value="1" id="loremInput">
-    <button id="btnLorem">Gerar Lorem</button>
-
+    <div class="content">
+        <p id="pp" class="ps"></p>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
+
         let btn = document.getElementById('btnLorem').addEventListener('click', (e) => {
 
             e.preventDefault()
 
             var loremInput = document.getElementById("loremInput")
+
 
             paras = loremInput.value
             axios.get(`https://baconipsum.com/api/?type=all-meat&paras=${paras}&start-with-lorem=1`)
@@ -36,8 +39,10 @@
                     let dt = res.data;
                     let paragrafo = document.getElementById("pp")
 
+                    console.log(res.paras)
                     let item = document.createElement("div")
-                    paragrafo.classList.add("p-lorem")
+                    // paragrafo.classList.add("p-lorem")
+
                     // item.classList.add("p-lorem")
                     paragrafo.innerHTML = ""
                     // paragrafo.appendChild(item)
@@ -50,7 +55,6 @@
 
                 })
         })
-
 
 
     </script>

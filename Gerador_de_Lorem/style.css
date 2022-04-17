@@ -27,19 +27,37 @@ p{
     color: black;
 }
 
+.ps{
+    
+  background-color: rgb(255, 255, 255)!important;
+  min-height: 120px;
+  max-height: 500px;   
+    
+}
+
 button{
     background-color:rgb(253, 239, 108);
     padding: 7px;
     border-radius: 3px;
-    font-size: 1rem
+    font-size: 1rem;
+    border: 1px solid black;
+    border-bottom:4px solid rgb(17, 15, 0);
+ 
 }
 button:hover{
     background-color:rgb(219, 126, 20);
-    transition: 2s;  
+    transition: 1s;  
 }
 
 input{
+    margin: 0px 10px;
     padding:7px;
     font-size: 1rem;
 
+}
+
+.control{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
