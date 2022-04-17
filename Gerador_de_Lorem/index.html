@@ -3,11 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <script>
-        window.onload = function () {
-            document.getElementById("btnLorem").click();
-        };</script>
-
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -15,10 +12,14 @@
 </head>
 
 <body>
-    <p id="pp"></p>
+    <h1>Um Simples Gerador de Lorem Ipsum</h1>
+    <div class="content">
+        <p id="pp"></p>
+    </div>
     <label for="loremInput">Parágrafos</label><br>
     <input type="number" min="1" max="100" value="1" id="loremInput">
     <button id="btnLorem">Gerar Lorem</button>
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         let btn = document.getElementById('btnLorem').addEventListener('click', (e) => {
@@ -36,12 +37,14 @@
                     let paragrafo = document.getElementById("pp")
 
                     let item = document.createElement("div")
+                    paragrafo.classList.add("p-lorem")
+                    // item.classList.add("p-lorem")
                     paragrafo.innerHTML = ""
-                    paragrafo.appendChild(item)
+                    // paragrafo.appendChild(item)
 
                     for (item of res.data) {
 
-                        paragrafo.innerHTML = paragrafo.outerHTML + `<p>${item}</p>`
+                        paragrafo.innerHTML = paragrafo.innerHTML + `<p>${item}</p>`
 
                     }
 
@@ -52,7 +55,7 @@
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="script.js"></script>
+
 
 
 

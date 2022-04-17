@@ -1,0 +1,45 @@
+body{
+    background-color:rgb(101, 172, 172);
+}
+h1{
+    display: flex;
+    justify-content: center;
+
+}
+.content > p{
+    background-color: azure;
+    border: 1px solid black;
+    border-radius: 4px;
+    max-height: 500px;
+    overflow-y: auto;
+    
+    /* border: 1px solid black; */
+
+}
+
+label,p,button,input {
+    font-family: Arial, sans-serif;
+}
+
+p{
+    background-color: beige;
+    padding: 15px;
+    color: black;
+}
+
+button{
+    background-color:rgb(253, 239, 108);
+    padding: 7px;
+    border-radius: 3px;
+    font-size: 1rem
+}
+button:hover{
+    background-color:rgb(219, 126, 20);
+    transition: 2s;  
+}
+
+input{
+    padding:7px;
+    font-size: 1rem;
+
+}
