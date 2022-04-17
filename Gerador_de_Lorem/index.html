@@ -2,60 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script>
+    window.onload = function () { 
+        document.getElementById("cc").click();
+        console.log('a')
+     };</script>
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
 </head>
-<body onload="addP()">
+<body >
     <p id="pp"></p>
-    <form action="" ><input type="text" value="1" id="bb">
-        <button id="cc" >Gerar Lorem</button></form>
+    <form action="" ><input type="text"  id="bb">
+        <button id="cc"  >Gerar Lorem</button></form>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script>
-                let btn = document.getElementById('cc').addEventListener('click',(e)=>{
+               let btn = document.getElementById('cc').addEventListener('click',(e)=>{
+
+ e.preventDefault()
  
-               e.preventDefault()
-              
-               let bb = document.getElementById("bb")
-                 var par = document.getElementById("cc")
-                
-        //    para= bb.value
+          var bb =  document.getElementById("bb")    
+        
+        paras = bb.value
+                    axios.get(`https://baconipsum.com/api/?type=all-meat&paras=${paras}&start-with-lorem=1`)
+.then(res => { 
 
-// let para = bb.value.replace(1,5)
-// console.log(para)
-let para = bb.value
-
- 
-
-axios.get(`https://baconipsum.com/api/?type=all-meat&paras=${para}&start-with-lorem=1`)
-.then(res => { //fazendo a requisição
-    
-    const resData = res.data
-console.log(res.paras)
-    let emptyP = document.getElementById("pp") 
-
-    emptyP.innerHTML = resData //atribui ao html a requisiçãoF
+    console.log(paras)
+  let dt = res.data;
+  let paragrafo = document.getElementById("pp")
+  dt.forEach(dts => {
+    let item = document.createElement("div")
+    item.innerHTML = dts
+    paragrafo.appendChild(item)
+  
 
 
-
-
- })
- 
- .catch((err)=>{
-    console.log(err)
+  })
+  
+}) 
 })
+            
+      
 
-
-
-
-})
-             
         </script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
    <script src="script.js"></script>
 
    
-   <script>function addP(){
+   <!-- <script>function addP(){
  axios.get(`https://baconipsum.com/api/?type=all-meat&paras=1&start-with-lorem=1`)
 .then(res => {
     let emptyP = document.getElementById("pp") 
@@ -66,6 +62,6 @@ console.log(res.paras)
 
  })
  
-}</script>
+}</script> -->
 </body>
 </html>
