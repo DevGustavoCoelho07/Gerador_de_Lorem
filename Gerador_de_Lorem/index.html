@@ -5,7 +5,6 @@
     <script>
     window.onload = function () { 
         document.getElementById("cc").click();
-        console.log('a')
      };</script>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,14 +31,24 @@
     console.log(paras)
   let dt = res.data;
   let paragrafo = document.getElementById("pp")
-  dt.forEach(dts => {
-    let item = document.createElement("div")
-    item.innerHTML = dts
-    paragrafo.appendChild(item)
+//   dt.forEach(dts => {
+//     let item = document.createElement("div")
+//     item.innerHTML = dts
+//     paragrafo.appendChild(item)
   
 
 
-  })
+//   })
+let item = document.createElement("div")
+paragrafo.innerHTML = ""
+     paragrafo.appendChild(item)
+
+     
+for(item of res.data) {
+
+  paragrafo.innerHTML = paragrafo.outerHTML + `<p>${item}</p>`
+  
+}
   
 }) 
 })
