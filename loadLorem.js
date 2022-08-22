@@ -1,3 +1,3 @@
-window.onload = function () {
-    document.getElementById("btnLorem").click();
-};
+// window.onload = function () {
+//   document.getElementById("btnLorem").click();
+// };

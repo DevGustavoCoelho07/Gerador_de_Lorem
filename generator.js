@@ -1,31 +1,28 @@
-let btn = document.getElementById('btnLorem').addEventListener('click', (e) => {
+async function generator() {
+  var loremInput = document.getElementById("loremInput");
 
-    e.preventDefault()
+  paras = loremInput.value;
+  await axios
+    .get(
+      `https://baconipsum.com/api/?type=all-meat&paras=${paras}&start-with-lorem=1`
+    )
+    .then((res) => {
+      console.log(paras);
+      let dt = res.data;
+      let paragrafo = document.getElementById("pp");
 
-    var loremInput = document.getElementById("loremInput")
+      console.log(res.paras);
+      let item = document.createElement("div");
+      // paragrafo.classList.add("p-lorem")
 
+      // item.classList.add("p-lorem")
+      paragrafo.innerHTML = "";
+      // paragrafo.appendChild(item)
 
-    paras = loremInput.value
-    axios.get(`https://baconipsum.com/api/?type=all-meat&paras=${paras}&start-with-lorem=1`)
-        .then(res => {
+      for (item of res.data) {
+        paragrafo.innerHTML = paragrafo.innerHTML + `<p>${item}</p>`;
+      }
+    });
+}
 
-            console.log(paras)
-            let dt = res.data;
-            let paragrafo = document.getElementById("pp")
-
-            console.log(res.paras)
-            let item = document.createElement("div")
-            // paragrafo.classList.add("p-lorem")
-
-            // item.classList.add("p-lorem")
-            paragrafo.innerHTML = ""
-            // paragrafo.appendChild(item)
-
-            for (item of res.data) {
-
-                paragrafo.innerHTML = paragrafo.innerHTML + `<p>${item}</p>`
-
-            }
-
-        })
-})
+generator();
